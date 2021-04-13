@@ -6,13 +6,21 @@ Multi-distance long-read binning. MuLoBi was designed for binning contigs with c
 MuLoBi takes as inuput (see 'example_test_files' for example of input files):
 
 -i : a file in fasta format containing the sequences of the contigs
+
 -ci : a short-read median coverage tab separated table : contig_name{tab}coverageA{tab}coverageB
+
 -cp : a long-read median coverage tab separated table : contig _name{tab}coverage
+
 -b : a BUSCO tab separated table with a line for each contig and the BUSCO status of each BUSCO gene on each column ('Missing', 'Fragmented', 'Complete', Duplicated').
+
 -s : distance threshold (e.g. 0.035)
--p : a list of ponderations for distaces tetranucleotide,coverage short-read,coverage long-read, busco, (e.g. 0.07,0.014,0.004,0.4)   
+
+-p : a list of ponderations for distaces tetranucleotide,coverage short-read,coverage long-read, busco, (e.g. 0.07,0.014,0.004,0.4) 
+
 -n : list of normalization factors for distances tetranucleotide, coverage short-read, coverage long-read (e.g median distances)
+
 -o : output folder name
+
 -m : 'True' for the output of distance matrices.
 
 
