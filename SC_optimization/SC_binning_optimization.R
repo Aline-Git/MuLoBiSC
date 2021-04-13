@@ -5,7 +5,7 @@ library(cluster)
 library(dendextend)
 library(dplyr)
 
-setwd("/home/aline/teletravail/tests_SC/")
+setwd("<working_directory>")
 
 # the two following files will be sorted in the same order
 # Distance matrix data
