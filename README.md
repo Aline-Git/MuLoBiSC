@@ -32,6 +32,6 @@ MuLoBi/main.py -f example_test_files/configuration_test_file.txt
 ## Silhouette score optimization
 Silhouette score optimisation will to refine the binning of the contigs by increasing the consistency of the global clustering. It also provides a metric, ranging for -1.0 to 1.0, on how well a contig is classified within a bin.
 
-The script takes as input the 'average_distance_table.tsv' and the 'contig_bin_correspondance_with_length.tsv' from MuLoBi output. The working directory should be changed line 8. the input files should be placed in a a 'input_files' folder in the working directory. An empty 'output_files' should be placed in the working directory.
+The script, written in R, takes as input the 'average_distance_table.tsv' and the 'contig_bin_correspondance_with_length.tsv' from MuLoBi output. The working directory should be changed line 8. the input files should be placed in a a 'input_files' folder in the working directory. An empty 'output_files' should be placed in the working directory.
 
 Simon Poirier wrote the silhouette score optimization with the participation of Marco Pagni and Aline Adler
