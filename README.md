@@ -24,6 +24,10 @@ MuLoBi takes as inuput (see 'example_test_files' for example of input files):
 -m : 'True' for the output of distance matrices.
 
 
+To run the binning :
+```
+MuLoBi/main.py -f example_test_files/configuration_test_file.txt
+```
 
 ## Silhouette score optimization
 Silhouette score optimisation will to refine the binning of the contigs by increasing the consistency of the global clustering. It also provides a metric, ranging for -1.0 to 1.0, on how well a contig is classified within a bin.
