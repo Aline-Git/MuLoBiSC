@@ -21,7 +21,7 @@ from average_distance import averageDistance
 
 # command line #
 ##############################
-# /home/aline/teletravail/Scripts_Genomic/new_home_binning/home_binning_v9_for_hybrid_binning/main.py -f 
+# /home/aline/teletravail/Scripts_Genomic/new_home_binning/home_binning_v9_for_hybrid_binning/main.py -f <configuration_file>
 
 ############################## inputs ####################################
 
