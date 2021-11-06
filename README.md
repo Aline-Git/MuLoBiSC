@@ -7,14 +7,14 @@ Multi-distance long-read binning. MuLoBi was designed for binning contigs with c
 
 MuLoBi takes as inuput the following arguments :
 
--i : a file in fasta format containing the sequences of the contigs
--ci : a short-read median coverage tab separated table : contig_name{tab}coverageA{tab}coverageB
--cp : a long-read median coverage tab separated table : contig _name{tab}coverage
--b : a BUSCO tab separated table with a line for each contig and the BUSCO status of each BUSCO gene on each column ('Missing', 'Fragmented', 'Complete', Duplicated').
--s : distance threshold (e.g. 0.035)
--p : a list of ponderations for distaces tetranucleotide,coverage short-read,coverage long-read, busco, (e.g. 0.07,0.014,0.004,0.4)
--n : list of normalization factors for distances tetranucleotide, coverage short-read, coverage long-read (e.g median distances)
--o : output folder name
+-i : a file in fasta format containing the sequences of the contigs<br/>
+-ci : a short-read median coverage tab separated table : contig_name{tab}coverageA{tab}coverageB<br/>
+-cp : a long-read median coverage tab separated table : contig _name{tab}coverage<br/>
+-b : a BUSCO tab separated table with a line for each contig and the BUSCO status of each BUSCO gene on each column ('Missing', 'Fragmented', 'Complete', Duplicated')<br/>
+-s : distance threshold (e.g. 0.035)<br/>
+-p : a list of ponderations for distaces tetranucleotide,coverage short-read,coverage long-read, busco, (e.g. 0.07,0.014,0.004,0.4)<br/>
+-n : list of normalization factors for distances tetranucleotide, coverage short-read, coverage long-read (e.g median distances)<br/>
+-o : output folder name<br/>
 -m : 'True' for the output of distance matrices.
 
 An exemple of command line is provided in the test demo 'launch.sh'.
@@ -36,10 +36,9 @@ MuLoBi is a python3 script, it requires packages Biophython and argparse. They c
 ```
 pip3 install Biopython
 pip3 install argparse
-
 ```
 
-SC_binning_optimization.R is a R script, it requires the packages "dplyr", "factoextra", "cluster" and "dendextend". If needed, these packages can be installed in R and may require the installation of other dependencies on the packages already installed. 
+SC_binning_optimization.R is a R script, it requires the packages "dplyr", "factoextra", "cluster" and "dendextend". If needed, these packages can be installed in R and may require the installation of other dependencies, depending on the packages already installed. 
 
 ```
 install.packages("dplyr")
@@ -56,8 +55,7 @@ To test MuLoBiSC on a small dataset. Clone the MuLoBiSC directory and launch the
 git clone https://github.com/Aline-Git/MuLoBiSC.git
 cd MuLoBiSC
 ./launch.sh
-
 ```
 
-The binning after silhouette coefficient optimisation will be in MuLoBiSC/tmp/test_SC_binning_optimization/binning_round5_SC_sort.csv.
+The resulting binning after silhouette coefficient optimisation will be in MuLoBiSC/tmp/test_SC_binning_optimization/binning_round5_SC_sort.csv.
 
