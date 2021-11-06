@@ -19,43 +19,32 @@ from average_distance import averageDistance
 
 """ The arguments are parsed in the main and are dispatched to the appropriate function/object."""
 
-# command line #
-##############################
-# /home/aline/teletravail/Scripts_Genomic/new_home_binning/home_binning_v9_for_hybrid_binning/main.py -f <configuration_file>
 
 ############################## inputs ####################################
 
 parser = argparse.ArgumentParser(description = 'Iterative home binning based on multiple distances')
 
-# change the parser if a configuration file is provided
-parser.add_argument('-f', '--config', help = 'configuration file', required = False)
-args = parser.parse_args()
-
-if args.config != None:
-    parser = ConfigFileReader(args.config)
-
 
 # arguments
 
-parser.add_argument('-i', '--input_fasta', help = 'the input fasta file containing the sequences of the contigs', required = True)
+parser.add_argument('-i', '--input_fasta', help = 'the input fasta file containing the sequences of the contigs to bin', required = True)
 parser.add_argument('-ci', '--coverage_illumina', help = 'illumina coverage table for each contig', required = True)
 parser.add_argument('-cp', '--coverage_pacbio', help = 'pacbio coverage table for each contig', required = True)
 parser.add_argument('-b', '--busco_table', help = 'busco table for each contig', required = True)
-parser.add_argument('-e', '--test', help = 'option set to True for the test mode', required = False)
+#parser.add_argument('-e', '--test', help = 'option set to True for the test mode', required = False)
 
 parser.add_argument('-s', '--distance_threshold', help = 'set the maximum distance between a contig and a bin', required = True)
 parser.add_argument('-p', '--ponderation', help = 'list of ponderations for distance (4mer,cov_illumina,cov_pacbio,busco)', required = True)
 parser.add_argument('-n', '--normalization', help = 'list of normalization factors for distances (4mer,cov_illumina,cov_pacbio)', required = True)
 parser.add_argument('-o', '--output_folder', help = 'output folder will contain a summary table of the binning and a fasta file for each bin', required = False)
 parser.add_argument('-m', '--output_matrices', help = 'this option output the different distance matrices', required = False)
+
 ##############################  arguments  ##############################
 
-if args.config != None:
-    parser.read()
+#parser.read()
 
 args = parser.parse_args()
 
-test_mode = args.test
 
 #input filename of the fasta file containing all the contigs of the assembly
 input_filename = args.input_fasta
@@ -249,9 +238,7 @@ for contig_name in contig_collection.sorted_name_list :
     selected_bin_name = min(binning_distance_table[contig_name], key=binning_distance_table[contig_name].get) 
 
     # print information about the contig and the chosen bin
-    #print('distance_threshold : ',distance_threshold)
     print('distance between ',contig_name, ' and ', selected_bin_name, ' : ',binning_distance_table[contig_name][selected_bin_name])
-    #print('distances all ', binning_distance_table[contig_name]) 
 
     # if the distance is lower than the threshold, the contig is added to the selected bin
     if binning_distance_table[contig_name][selected_bin_name] <= distance_threshold :
@@ -267,7 +254,7 @@ for contig_name in contig_collection.sorted_name_list :
         print('contig ', contig.record.id, ' is used to form a new bin ; bin number ',bin_collection.current_number)
         bin_collection.create_new_bin(contig)
 
-    #print('collecting garbage')
+    
     gc.collect()     
 
 ###########################################################################
@@ -342,10 +329,7 @@ output_tag_list.close()
 output_summary_table.close()
 output_contig_bin.close()
 
-
-# to implement  
-if test_mode :
-    pass 
+print("*** Multi-distance long read binning (MuLoBi) complete ***")
 
 
 
